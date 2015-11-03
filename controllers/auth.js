@@ -31,11 +31,8 @@ router.route("/signup")
 				}
 			}).spread(function (user, created) {
 				if (created) {
-					// req.login(user, function (err) {
-					// 	if (err) throw err;
-					// });
-						req.flash('success', 'Success! You are signed up. Click Login to log in.');
-						res.render('index', {alerts:req.flash()});
+					req.flash('success', 'Success! You are signed up. Click Login to log in.');
+					res.render('id/settings', {alerts:req.flash()});
 				} else {
 					req.flash('danger', 'A user with that email already exists.');
 					res.render('auth/signup', {alerts:req.flash()});
@@ -69,7 +66,7 @@ router.get("/logout", function (req, res) {
 	if (req.session.user) {
 		req.session.user = null;
 	}
-	res.render('/');
+	res.redirect('/');
 });
 
 module.exports = router;

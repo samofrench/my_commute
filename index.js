@@ -37,5 +37,6 @@ app.get("/", function (req, res) {
 
 app.use("/auth", require("./controllers/auth"));
 
+app.use("/:id", require("./controllers/id"))
 
 app.listen(3000);
