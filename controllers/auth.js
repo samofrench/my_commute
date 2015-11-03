@@ -52,20 +52,27 @@ router.route("/login")
 		res.render("auth/login");
 	})
 	.post(function (req, res) {
-		
-//
-//
-//
-//
-//
+		db.user.authenticate(req.body.email, req.body.password, function (err, user) {
+			if (user) {
+				if (err) throw err;
+				req.session.user = user.id;
+				req.flash('success', 'You are now logged in.');
+				res.redirect('/');
 
+			} else {
+			req.flash('danger', 'Error');
+			res.redirect('/auth/login');	
+		}});
 	});
 
+router.get("/logout", function (req, res) {
+	if (req.session.user) {
+		req.session.user = null;
+	}
+	res.render('/');
+});
+
 module.exports = router;
-
-
-
-
 
 
 

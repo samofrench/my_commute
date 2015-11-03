@@ -24,7 +24,7 @@ module.exports = function(sequelize, DataTypes) {
         // associations can be defined here
       },
       authenticate: function(email, password, callback) {
-        this.find({
+        this.findOne({
           where: {
             email: email
           }
@@ -57,6 +57,7 @@ module.exports = function(sequelize, DataTypes) {
         if (!user.password) return callback(null, user);
         bcrypt.hash(user.password, 10, function (err, hash) {
           if (err) return callback(err);
+          user.password = hash;
           callback(null, user);
         });
       }
@@ -64,13 +65,6 @@ module.exports = function(sequelize, DataTypes) {
   });
   return user;
 };
-
-
-
-
-
-
-
 
 
 

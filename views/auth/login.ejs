@@ -1,23 +1,25 @@
 <h3>Login</h3>
-
+<% if(typeof alerts !== 'undefined'){ %>
+    <% for(key in alerts){ %>
+        <% alerts[key].forEach(function(thisMsg){ %>
+            <div class="alert alert-<%= key %>"><%= thisMsg %></div>
+        <% }); %>
+    <% } %>
+<% } %>
 <div class="row">
 	<form class="col s12" method="POST" action="/auth/login">
 		<div class="row">
 			<div class"input-field col s6">
-				<input placeholder="Email" id="email" type="text" >
+				<input placeholder="Email" id="email" name="email" type="text" >
 				<label for="email">Email</label>
 			</div>
 			<div class"input-field col s6">
-				<input placeholder="Name" id="name" type="text" >
-				<label for="name">Name</label>
-			</div>
-			<div class"input-field col s6">
-				<input placeholder="Password" id="password" type="password" >
+				<input placeholder="Password" id="password" name="password" type="password" >
 				<label for="password">Password</label>
 			</div>
 			<button class="btn" type="submit" name="action">Submit
 				<i class="material-icons right">send</i>
 			</button>
-		</div>s
+		</div>
 	</form>
 </div>
