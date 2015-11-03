@@ -1,0 +1,31 @@
+<h3>Sign up!</h3>
+<div class="row">
+	<% if(typeof alerts !== 'undefined'){ %>
+	    <% for(key in alerts){ %>
+	        <% alerts[key].forEach(function(thisMsg){ %>
+	            <div class="alert alert-<%= key %>"><%= thisMsg %></div>
+	        <% }); %>
+	    <% } %>
+	<% } %>
+	<form class="col s12" method="POST" action="/auth/signup">
+		<div class="row">
+			<input type="text" name="name" class="col s6" placeholder="Name">
+			<label for="name">Name</label>
+		</div>
+		<div class="row">
+			<input type="text" name="email" class="col s6" placeholder="Email">
+			<label for="email">Email</label>
+		</div>
+		<div class="row">
+			<input type="password" name="password1" class="col s6" placeholder="Password">
+			<label for="password1">Enter a password (min. 8 characters)</label>
+		</div>
+		<div class="row">
+			<input type="password" name="password2" class="col s6" placeholder="Re-Type Your Password">
+			<label for="password2">Re-Type Your Password</label>
+		</div>
+		<button class="btn" type="submit" name="action">Submit
+			<i class="material-icons right">send</i>
+		</button>
+	</form>
+</div>
