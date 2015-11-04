@@ -6,6 +6,15 @@
  * Made By MaterializeCSS.com
  */
 
+body {
+/*	background-color: #00838f;*/
+	background-color: #ad1457;
+}
+
+.container-main {
+	background-color: white;
+}
+
 .icon-block {
   padding: 0 15px;
 }
@@ -13,10 +22,19 @@
 	font-size: inherit;
 }
 
-nav {
-	background-color: rgb(255, 96, 144);
+nav a, nav ul a {
+	color: #ad1457;
+	font-size: 1.5em;
 }
 
-.logo {
-	font-size: 2em;
+.title {
+	color: #3A97B2;
+}
+
+footer.page-footer {
+	background-color: #fff
+}
+
+footer a, footer ul a {
+	color: #ad1457;
 }

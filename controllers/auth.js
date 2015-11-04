@@ -38,7 +38,7 @@ router.route("/signup")
 			}).spread(function (user, created) {
 				if (created) {
 					req.flash('success', 'Success! You are signed up. Click Login to log in.');
-					res.render('id/settings', {alerts:req.flash()});
+					res.render('main/index', {alerts:req.flash()});
 				} else {
 					req.flash('danger', 'A user with that email already exists.');
 					res.render('auth/signup', {alerts:req.flash()});

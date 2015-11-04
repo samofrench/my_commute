@@ -1,10 +1,46 @@
 <div class="row">
-	<div class="col s10 offset-1">
-		<div class="col s6">
-			My Text
+    <form class="col s12" id="put-form" method="POST" action="/settings">
+		<div class="row">
+			<input type="text" name="name" class="col s6" value="<%= data.name %>">
+			<label for="name">Name</label>
 		</div>
-		<div class="col s6">
-			My Text 2
+		<div class="row">
+			<input type="text" name="email" class="col s6" value="<%= data.email %>">
+			<label for="email">Email</label>
 		</div>
-	</div>
-</div>
+		<div class="row">
+			<input type="password" name="password" class="col s6" value="########">
+			<label for="password">Password</label>
+		</div>
+		    <p>
+		      <input type="checkbox" name="cw" id="test1" <%= (data.car_want)?"checked":"" %>/>
+		      <label for="test1">I would like to carpool: </label>
+		    </p>
+		    <p>
+		      <input type="checkbox" name="ch" id="test2" <%= (data.car_have)?"checked":"" %>/>
+		      <label for="test2">I have a car: </label>
+		    </p>
+		    <p>
+		      <input type="checkbox" name="bw" id="test3" <%= (data.bicycle_want)?"checked":"" %>/>
+		      <label for="test3">I would like to bike: </label>
+		    </p>
+		    <p>
+		      <input type="checkbox" name="bh" id="test4" <%= (data.bicycle_have)?"checked":"" %>/>
+		      <label for="test4">I have a bike: </label>
+		    </p>
+		    <p>
+		      <input type="checkbox" name="ptw" id="test5" <%= (data.pt_want)?"checked":"" %>/>
+		      <label for="test5">I would like to take public transit: </label>
+		    </p>
+		    <p>
+		      <input type="checkbox" name="ww" id="test6" <%= (data.walk_want)?"checked":"" %>/>
+		      <label for="test6">I would like to walk: </label>
+		    </p>
+		<div class="row">
+			<button class="btn" type="submit" name="action">Update</button>
+			<a href="/">
+			  <input type="button" value="Cancel" >
+			</a>
+		</div>
+	</form>
+  </div>

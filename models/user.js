@@ -17,7 +17,13 @@ module.exports = function(sequelize, DataTypes) {
         len: [8, 99]
       }
     },
-    name: DataTypes.STRING
+    name: DataTypes.STRING,
+    car_want: DataTypes.BOOLEAN,
+    car_have: DataTypes.BOOLEAN,
+    pt_want: DataTypes.BOOLEAN,
+    bicycle_want: DataTypes.BOOLEAN,
+    bicycle_have: DataTypes.BOOLEAN,
+    walk_want: DataTypes.BOOLEAN
   }, {
     classMethods: {
       associate: function(models) {

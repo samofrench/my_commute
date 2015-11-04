@@ -10,13 +10,14 @@
 	<link rel="stylesheet" type="text/css" href="/css/main.css">
 </head>
 <body>
-	<div class="container">
-		<nav class="pink-lighten-2">
+	<div class="container container-main">
+		<nav class="white">
 			<div class="nav-wrapper">
-				<a href="/" class="logo">myCommute!</a>
+				<a href="/">myCommute!</a>
 				<ul class="right">
 					<% if (currentUser) { %>
-						<li><a href="/:id/settings">Setings</a></li>
+            <li><a href="/find">Find</a></li>
+						<li><a href="/settings">Settings</a></li>
             <li><a href="/auth/logout">Logout</a></li>
 					<% } else { %>
 						<li><a href="/auth/login">Login</a></li>
@@ -35,40 +36,28 @@
     <%- body %>
 
 
-    <footer class="page-footer orange">
+    <footer class="page-footer">
       <div class="container">
         <div class="row">
-          <div class="col l6 s12">
-            <h5 class="white-text">Company Bio</h5>
-            <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
-
-
-          </div>
           <div class="col l3 s12">
-            <h5 class="white-text">Settings</h5>
+            <h5 class="pink-text text-darken-3">Connect</h5>
             <ul>
-              <li><a class="white-text" href="#!">Link 1</a></li>
-              <li><a class="white-text" href="#!">Link 2</a></li>
-              <li><a class="white-text" href="#!">Link 3</a></li>
-              <li><a class="white-text" href="#!">Link 4</a></li>
+              <li><a class="pink-text text-darken-3" href="https://github.com/samofrench/">GitHub</a></li>
+              <li><a class="pink-text text-darken-3" href="https://www.linkedin.com/pub/sam-french/83/760/850">LinkedIn</a></li>
+              <li><a class="pink-text text-darken-3" href="https://generalassemb.ly/">General Assembly</a></li>
             </ul>
-          </div>
-          <div class="col l3 s12">
-            <h5 class="white-text">Connect</h5>
+            <h5 class="pink-text text-darken-3">Powered By</h5>
             <ul>
-              <li><a class="white-text" href="#!">Link 1</a></li>
-              <li><a class="white-text" href="#!">Link 2</a></li>
-              <li><a class="white-text" href="#!">Link 3</a></li>
-              <li><a class="white-text" href="#!">Link 4</a></li>
+              <li><a class="pink-text text-darken-3" href="http://materializecss.com/">Materialize</a></li>
             </ul>
           </div>
         </div>
       </div>
-      <div class="footer-copyright">
+      <!-- <div class="footer-copyright">
         <div class="container">
         Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
         </div>
-      </div>
+      </div> -->
     </footer>
 	</div>
 
