@@ -12,3 +12,11 @@
 .icon-block .material-icons {
 	font-size: inherit;
 }
+
+nav {
+	background-color: rgb(255, 96, 144);
+}
+
+.logo {
+	font-size: 2em;
+}

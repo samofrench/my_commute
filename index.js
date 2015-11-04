@@ -31,12 +31,14 @@ app.use(function (req, res, next){
   next();
 });
 
-app.get("/", function (req, res) {
-	res.render("index");
-});
+app.use("/", require("./controllers/main"));
 
 app.use("/auth", require("./controllers/auth"));
 
-app.use("/:id", require("./controllers/id"))
+app.use("/find", require("./controllers/find"));
+
+// // app.use("/messages", require("./controllers/msgs"));
+
+app.use("/settings", require("./controllers/settings"));
 
 app.listen(3000);

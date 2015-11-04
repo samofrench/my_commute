@@ -27,7 +27,13 @@ router.route("/signup")
 				}, 
 				defaults: {
 					password: pass1,
-					name: name
+					name: name,
+					car_want: false,
+					car_have: false,
+					pt_want: false,
+					bicycle_want: false,
+					bicycle_have: false,
+					walk_want: false
 				}
 			}).spread(function (user, created) {
 				if (created) {
