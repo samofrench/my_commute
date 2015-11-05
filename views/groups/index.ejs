@@ -1,0 +1,53 @@
+<div class="row">
+	<div class="col s12">
+		<ul class="tabs">
+			<li class="tab col s4"><a class="active" href="#mygroups">My Groups</a></li>
+			<li class="tab col s4"><a href="#seeall">See All Groups</a></li>
+			<li class="tab col s4"><a href="#create">Create New Group</a></li>
+		</ul>
+	</div>
+	<div id="mygroups" class="col s12">
+		<% data.forEach(function (obj) { %>
+			<p><a href="/groups/<%= obj.id %>"><%= obj.name %></a></p>
+		<%	}) %>
+	</div>
+	<div id="seeall" class="col s12">
+		<% data.forEach(function (obj) { %>
+			<p><a href="/groups/<%= obj.id %>"><%= obj.name %></a></p>
+		<%	}) %>
+	</div>
+	<div id="create" class="col s12">
+		<form id="put-form" method="POST" action="/groups">
+			<div class="row">
+				<input type="text" name="name" class="col s6">
+				<label for="name">Name</label>
+			</div>
+			<div class="row">
+				<input type="text" name="address1" class="col s6">
+				<label for="address1">Address Line 1</label>
+			</div>
+			<div class="row">
+				<input type="text" name="address2" class="col s6">
+				<label for="address2">Address Line 2</label>
+			</div>
+			<div class="row">
+				<input type="text" name="city" class="col s6">
+				<label for="city">City</label>
+			</div>
+			<div class="row">
+				<input type="text" name="state" class="col s6">
+				<label for="state">State</label>
+			</div>
+			<div class="row">
+				<input type="text" name="zip" class="col s6">
+				<label for="zip">ZIP</label>
+			</div>
+			<div class="row">
+				<button class="btn" type="submit" name="action">Create Group</button>
+				<a href="/">
+				  <input type="button" value="Cancel" >
+				</a>
+			</div>
+		</form>
+	</div>
+</div>

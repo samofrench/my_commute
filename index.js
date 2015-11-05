@@ -38,6 +38,8 @@ app.use("/auth", require("./controllers/auth"));
 
 app.use("/find", require("./controllers/find"));
 
+app.use("/groups", require("./controllers/groups"));
+
 // // app.use("/messages", require("./controllers/msgs"));
 
 app.use("/settings", require("./controllers/settings"));

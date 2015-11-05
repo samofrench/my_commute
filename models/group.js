@@ -2,7 +2,12 @@
 module.exports = function(sequelize, DataTypes) {
   var group = sequelize.define('group', {
     name: DataTypes.STRING,
-    userId: DataTypes.INTEGER
+    userId: DataTypes.INTEGER,
+    address1: DataTypes.STRING,
+    address2: DataTypes.STRING,
+    city: DataTypes.STRING,
+    state: DataTypes.STRING,
+    zip: DataTypes.INTEGER
   }, {
     classMethods: {
       associate: function(models) {
