@@ -44,4 +44,4 @@ app.use("/groups", require("./controllers/groups"));
 
 app.use("/settings", require("./controllers/settings"));
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
