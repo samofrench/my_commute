@@ -51,6 +51,49 @@ router.route("/")
 		}
 	});
 
+router.route("/:id")
+	.get(function (req, res) {
+		if(req.session.user) {
+			var id = req.params.id;
+			db.group.findById(id).then(function (group) {
+				if (group) {
+					data = group.get();
+					var userId = data.userId;
+					db.user.findById(userId).then(function (user) {
+						var name = user.name;
+						res.render("groups/show", {data: data, name: name})
+					});
+				} else {
+					res.send("Group not found.");
+				}	
+			})
+		} else {
+			res.send("Please log in to see this page.");
+		}
+	})
+
+	.post(function (req, res) {
+		if(req.session.user) {
+			var groupId = req.params.id;
+			var userId = req.session.user;
+			db.usersGroups.findOrCreate({
+				where: {
+					userId: userId,
+					groupId: groupId
+				}
+			}).spread(function (user, created) {
+				if (created) {
+					req.flash('success', 'Successfully joined group.');
+					res.render('main/index', {alerts:req.flash()});
+				} else {
+					req.flash('success', 'You are already a member of this group.');
+					res.render('main/index', {alerts:req.flash()});
+				}
+			})
+		} else {
+			res.send("Please log in.");
+		}	
+	});
 
 module.exports = router;
 

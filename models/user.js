@@ -27,7 +27,8 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        models.user.hasMany(models.group);
+//        models.user.hasMany(models.group);
+        models.user.belongsToMany(models.group, {through: "usersGroups"});
       },
       authenticate: function(email, password, callback) {
         this.findOne({
