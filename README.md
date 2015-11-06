@@ -1,5 +1,8 @@
-my_commute
+myCommute
 ==========
+
+###A web app that connects users based on shared commutes
+
 
 This app was developed by Sam French as part of General Assembly's Web Development Immersive course Fall 2015.
 
@@ -9,7 +12,8 @@ The idea behind the service is that many of us could benefit from carpooling or 
 
 myCommute provides a platform for people to both improve their commutes by saving time and money, as well as connecting and socializing with others in their organizations who they share things in common with.
 
-###Technologies
+Technologies
+------------
 
 - HTML5
 - CSS3
