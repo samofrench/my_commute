@@ -37,8 +37,10 @@ router.route("/results")
 			db.group.findById(group).then(function (group) {
 				group.getUsers().then(function (users) {
 					var array = users.filter(function (user) {
-						return user[mode] == true;
-					});	
+						console.log(user);
+						return (user[mode] === true);
+					});
+					console.log("array: "+array);
 					res.render('find/results', {array});			
 				});						
 			});
