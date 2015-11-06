@@ -3,26 +3,28 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-	<title>myCommute!</title>
+	<title>myCommute</title>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   	<link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   	<link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-	<link rel="stylesheet" type="text/css" href="/css/main.css">
+	 <link rel="stylesheet" type="text/css" href="/css/main.css">
+     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
 </head>
 <body>
 	<div class="container container-main">
 		<nav class="white">
 			<div class="nav-wrapper">
-				<a href="/">myCommute!</a>
+				<a href="/">myCommute</a>
 				<ul class="right">
 					<% if (currentUser) { %>
             <li><a href="/find">Find</a></li>
             <li><a href="/groups">Groups</a></li>
 						<li><a href="/settings">Settings</a></li>
-            <li><a href="/auth/logout">Logout</a></li>
+            <li><a href="/auth/logout">Log Out</a></li>
 					<% } else { %>
-						<li><a href="/auth/login">Login</a></li>
-						<li><a href="/auth/signup">Signup</a></li>
+						<li><a href="/auth/login">Log In</a></li>
+						<li><a href="/auth/signup">Sign Up</a></li>
 					<% } %>
 				</ul>
 			</div>
@@ -64,7 +66,6 @@
 
 
   <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="/js/materialize.js"></script>
   <script src="/js/init.js"></script>
 </body>

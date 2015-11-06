@@ -1,6 +1,8 @@
 var express = require("express");
 var router = express.Router();
-var db = require("../models")
+var db = require("../models");
+var request = require('request');
+var key = process.env.GOOGLE_API_KEY;
 
 router.get("/", function (req, res) {
 	res.render("index");
@@ -16,11 +18,32 @@ router.route("/signup")
 		var pass2 = req.body.password2;
 		var email = req.body.email;
 		var name = req.body.name;
-
+		var address1 = req.body.address1;
+		var address2 = req.body.address2;
+		var city = req.body.city;
+		var state = req.body.state;
+		var zip = req.body.zip;
+		// var neighborhood;
+		// var addressString = [address1, city, state, zip].join('+');
+		// addressString = addressString.split(' ');
+		// addressString = addressString.join('+');
+		// console.log(addressString);
 		if (pass1 != pass2) {
 			req.flash('danger', 'Passwords do not match');
 			res.render('auth/signup', {alerts:req.flash()});
 		} else {
+			// request("https://maps.googleapis.com/maps/api/geocode/json?address="+addressString+"&key="+key, function (error, response, body) {
+			// 	var data = JSON.parse(body);
+			// 	var result = data.results[0].address_components;
+			// 	result.forEach(function (component) {
+			// 		component.types.forEach(function (type) {
+			// 			if (type == 'neighborhood') {
+			// 				neighborhood = component.long_name;
+			// 			}
+			// 		});
+			// 	});
+			// 	res.send(neighborhood);
+			// });
 			db.user.findOrCreate({
 				where: {
 					email: email

@@ -5,10 +5,18 @@ var db = require("../models")
 router.route("/")
 	.get(function (req, res) {
 		if(req.session.user) {
-			var data = [];
-			db.group.findAll().then(function (groups) {
-				data = groups;
-				res.render("groups/index", {data});
+			var userGroups = [];
+			var allGroups = [];
+			
+			db.user.findById(req.session.user).then(function (user) {
+			  user.getGroups().then(function (groups) {
+			    userGroups = groups;
+			  }).then(function () {
+				db.group.findAll().then(function (groups) {
+					allGroups = groups;
+					res.render("groups/index", {userGroups: userGroups, allGroups: allGroups});
+				});			  	
+			  });
 			});
 		} else {
 			res.send("Please log in to see this page.");
@@ -37,14 +45,14 @@ router.route("/")
 				if (created) {
 //					data.push(newGroup);
 					req.flash('success', 'Success! You have created a new group.');
-					res.render('groups/index', {alerts:req.flash(), data:data});
+					res.render('main/index', {alerts:req.flash(), data:data});
 				} else {
 					req.flash('danger', 'A group with that email already exists.');
-					res.render('groups/index', {alerts:req.flash(), data:data});
+					res.render('main/index', {alerts:req.flash(), data:data});
 				}
 			}).catch(function (err) {
 				req.flash('danger', err.message);
-				res.render('groups/index', {alerts:req.flash(), data:data});
+				res.render('main/index', {alerts:req.flash(), data:data});
 			});
 		} else {
 			res.send("Please log in.");

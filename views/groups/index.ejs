@@ -7,12 +7,12 @@
 		</ul>
 	</div>
 	<div id="mygroups" class="col s12">
-		<% data.forEach(function (obj) { %>
+		<% userGroups.forEach(function (obj) { %>
 			<p><a href="/groups/<%= obj.id %>"><%= obj.name %></a></p>
 		<%	}) %>
 	</div>
 	<div id="seeall" class="col s12">
-		<% data.forEach(function (obj) { %>
+		<% allGroups.forEach(function (obj) { %>
 			<p><a href="/groups/<%= obj.id %>"><%= obj.name %></a></p>
 		<%	}) %>
 	</div>

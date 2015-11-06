@@ -1,11 +1,48 @@
 <h3 class="center">Find a Match!</h3>
-<h5>Choose an option below to find someone in your network to commute with.</h5>
-<div class="row center">
-	<a class="waves-effect waves-light pink darken-3 btn-large"><i class="material-icons left">directions_car</i>Carpool</a>
-	<a class="waves-effect waves-light yellow lighten-1 btn-large"><i class="material-icons left">directions_bike</i>Bike</a>
-	<a class="waves-effect waves-light pink lighten-2 btn-large"><i class="material-icons left">directions_bus</i>Public Transit</a>
-	<a class="waves-effect waves-light light-blue lighten-2 btn-large"><i class="material-icons left">directions_walk</i>Walk</a>
+<h5>Choose an option below to find someone in your group to commute with.</h5>
+<div class="row center">	
+	<form method="GET" action="/find/results" class="inline">
+		<div class="input-field col s12">
+		    <select name="group" class="browser-default">
+		    <% userGroups.forEach(function (group) { %>
+		      	<option value="<%= group.id %>"><%= group.name %></option>
+		    <%	}); %>
+		    </select>
+		</div>
+		<button id="car" value="car_want" class="submit-btn waves-effect waves-light pink darken-3 btn-large"><i class="material-icons left">directions_car</i>Carpool</button>
+		<button id="bike" value="bicycle_want" class="submit-btn waves-effect waves-light yellow lighten-1 btn-large"><i class="material-icons left">directions_bike</i>Bike</button>
+		<button id="transit" value="pt_want" class="submit-btn waves-effect waves-light pink lighten-2 btn-large"><i class="material-icons left">directions_bus</i>Public Transit</button>
+		<button id="walk" value="walk_want" class="submit-btn waves-effect waves-light light-blue lighten-2 btn-large"><i class="material-icons left">directions_walk</i>Walk</button>
+		<input type="hidden" name="mode" id="mode" value="">
+	</form>
+
 </div>
-<div class="row center">
-	<a class="waves-effect waves-light cyan darken-3 btn-large">Custom Search</a>
-</div>
+
+
+
+
+	<div class="row center">
+		<a class="waves-effect waves-light cyan darken-3 btn-large">Custom Search</a>
+	</div>
+
+<script type="text/javascript">
+
+	$('form').on('click', '.submit-btn', function (e) {
+//		e.preventDefault()
+		
+		var mode = $(this).val();
+		var group = $('select').val();
+		console.log(mode+", "+group);
+
+		$('#mode').val(mode);
+
+	});
+
+</script>
+
+
+
+
+<!-- <form method="POST">
+	<button class="waves-effect waves-light cyan darken-3 btn-large" type="submit" name="action"><i class="material-icons left">add</i>Join this Group</button>
+</form> -->

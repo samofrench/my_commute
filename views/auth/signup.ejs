@@ -1,12 +1,5 @@
 <h3>Sign up!</h3>
 <div class="row">
-	<% if(typeof alerts !== 'undefined'){ %>
-	    <% for(key in alerts){ %>
-	        <% alerts[key].forEach(function(thisMsg){ %>
-	            <div class="alert alert-<%= key %>"><%= thisMsg %></div>
-	        <% }); %>
-	    <% } %>
-	<% } %>
 	<form class="col s12" method="POST" action="/auth/signup">
 		<div class="row">
 			<input type="text" name="name" class="col s6" placeholder="Name">
@@ -23,6 +16,26 @@
 		<div class="row">
 			<input type="password" name="password2" class="col s6" placeholder="Re-Type Your Password">
 			<label for="password2">Re-Type Your Password</label>
+		</div>
+		<div class="row">
+			<input type="text" name="address1" class="col s6" placeholder="Address Line 1">
+			<label for="address1">Address Line 1</label>
+		</div>
+		<div class="row">
+			<input type="text" name="address2" class="col s6" placeholder="Address Line 2">
+			<label for="address2">Address Line 2</label>
+		</div>
+		<div class="row">
+			<input type="text" name="city" class="col s6" placeholder="City">
+			<label for="city">City</label>
+		</div>
+		<div class="row">
+			<input type="text" name="state" class="col s6" placeholder="State">
+			<label for="state">State</label>
+		</div>
+		<div class="row">
+			<input type="text" name="zip" class="col s6" placeholder="ZIP Code">
+			<label for="zip">ZIP Code</label>
 		</div>
 		<button class="btn" type="submit" name="action">Submit
 			<i class="material-icons right">send</i>

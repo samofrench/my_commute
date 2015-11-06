@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
 //        models.group.belongsTo(models.user);
-        models.user.belongsToMany(models.group, {through: "usersGroups"});
+        models.group.belongsToMany(models.user, {through: "usersGroups"});
       }
     }
   });

@@ -38,3 +38,7 @@ footer.page-footer {
 footer a, footer ul a {
 	color: #ad1457;
 }
+
+.inline {
+	display: inline-block;
+}

@@ -9,8 +9,24 @@
 			<label for="email">Email</label>
 		</div>
 		<div class="row">
-			<input type="password" name="password" class="col s6" value="########">
-			<label for="password">Password</label>
+			<input type="text" name="address1" class="col s6" value="<%= data.address1 %>">
+			<label for="address1">Address Line 1</label>
+		</div>
+		<div class="row">
+			<input type="text" name="address2" class="col s6" value="<%= data.address2 %>">
+			<label for="address2">Address Line 2</label>
+		</div>
+		<div class="row">
+			<input type="text" name="city" class="col s6" value="<%= data.city %>">
+			<label for="city">City</label>
+		</div>
+		<div class="row">
+			<input type="text" name="state" class="col s6" value="<%= data.state %>">
+			<label for="state">State</label>
+		</div>
+		<div class="row">
+			<input type="text" name="zip" class="col s6" value="<%= data.zip %>">
+			<label for="zip">ZIP Code</label>
 		</div>
 		    <p>
 		      <input type="checkbox" name="cw" id="test1" <%= (data.car_want)?"checked":"" %>/>
