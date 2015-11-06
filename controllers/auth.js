@@ -4,9 +4,9 @@ var db = require("../models");
 var request = require('request');
 var key = process.env.GOOGLE_API_KEY;
 
-router.get("/", function (req, res) {
-	res.render("index");
-});
+// router.get("/", function (req, res) {
+// 	res.render("index");
+// });
 
 router.route("/signup")
 	.get(function (req, res) {
