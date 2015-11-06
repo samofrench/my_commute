@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(__dirname+ '/static'));
 
 app.use(function (req, res, next){
-  req.session.user = 8;
+//  req.session.user = 8;
   res.locals.currentUser = req.session.user;
   res.locals.alerts = req.flash();
   next();
